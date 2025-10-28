@@ -44,4 +44,18 @@ class SistemaServicos():
         self.l_servicos.pop(int(remover))
         
     def atualizarStatus(self):
-        pass
+        print("Deseja atualizar o status de qual serviço?")
+        input_servico = int(input("ID do serviço\n> "))
+        for servico in self.l_servicos:
+            if servico.id == input_servico:
+                status_input = input("Escolha um novo status do serviço:\n1 - Na bancada\n2 - Aguardando peça\n3 - Pronto para retirada\n4 - Entregue\n> ")  
+                match int(status_input):
+                    case 1:
+                        servico.status = "Na bancada"
+                    case 2:
+                        servico.status = "Aguardando peça"
+                    case 3:
+                        servico.status = "Pronto para retirada"
+                    case 4:    
+                        servico.status = "Entregue"
+                        
