@@ -61,12 +61,3 @@ class SistemaClientes(): #Classe do Sistema de Cadastro de Clientes
             print("Esse cliente não existe. Tente novamente.\n")
 
         
-
-#Testes -- Apagar quando o MAIN estiver pronto
-sistema = SistemaClientes()
-
-#Cadastrando 2 Clientes
-sistema.cadastrarCliente()
-sistema.listarCliente()
-sistema.removerCliente()
-sistema.listarCliente()

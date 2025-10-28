@@ -84,12 +84,4 @@ class SistemaEstoque():
                     return
             
         
-        
 
-estoque = SistemaEstoque()
-
-#Cadastrando 2 Peças
-estoque.cadastrarPeca()
-estoque.listarPeca()
-estoque.usarPeca()
-estoque.listarPeca()

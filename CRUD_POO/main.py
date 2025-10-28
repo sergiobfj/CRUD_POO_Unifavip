@@ -5,8 +5,8 @@ import estoque
 def menu_principal():
     while True:
         print('\n=-=-=-= BEM-VINDO AO SISTEMA =-=-=-=')
-        print('[1] Gerenciar Cliente ✅')
-        print('[2] Gerenciar Peça ✅')
+        print('[1] Gerenciar Cliente')
+        print('[2] Gerenciar Peça')
         print('[3] Gerenciar Serviço')
         print('[4] Gerar Relatório')
         print('[0] Sair')
@@ -40,11 +40,11 @@ def menu_clientes():
         opcao = input('Escolha uma opção: ')
 
         if opcao == "1":
-            sistema_clientes.cadastrar_cliente()
+            sistema_clientes.cadastrarCliente()
         elif opcao == "2":
-            sistema_clientes.listar_clientes()
+            sistema_clientes.listarCliente()
         elif opcao == "3":
-            sistema_clientes.remover_cliente()
+            sistema_clientes.removerCliente()
         elif opcao == "0":
             break
         else:
@@ -63,11 +63,11 @@ def menu_pecas():
         opcao = input('Escolha uma opção: ')
 
         if opcao == "1":
-            sistema_estoque.adicionar_peca()
+            sistema_estoque.adicionarPeca()
         elif opcao == "2":
-            sistema_estoque.listar_pecas()
+            sistema_estoque.listarPeca()
         elif opcao == "3":
-            sistema_estoque.remover_peca()
+            sistema_estoque.removerPeca()
         elif opcao == "0":
             break
         else:
