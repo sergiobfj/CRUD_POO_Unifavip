@@ -14,7 +14,6 @@ class SistemaClientes(): #Classe do Sistema de Cadastro de Clientes
     Tclientes = [] #Lista de clientes
         
     def cadastrarCliente(self): #Método de cadastro de clientes
-        print("-=-=-=-=-=-=- CADASTRO DE CLIENTE -=-=-=-=-=-=-\n")
         name = input("Nome Completo: ").upper()
 
         while True: #Tratamento de erro

@@ -14,7 +14,6 @@ class SistemaEstoque():
     t_Estoque = []
         
     def cadastrarPeca(self):
-        print("-=-=-=-=-=-=- CADASTRO DE PEÇAS -=-=-=-=-=-=-\n")
         name = input("Nome da peça: ").upper()
         preco = input("Preço de custo: R$")
         qtd = int(input("Quantidade: " ))
