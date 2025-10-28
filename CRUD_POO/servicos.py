@@ -1,11 +1,12 @@
 #Cadastro de serviços
 class Servicos:
-    def __init__(self, id, name, desc, preco, status):
+    def __init__(self, id, name, desc, preco, status, status_input):
         self.id = id
         self.name = name
         self.desc = desc
         self.preco = preco
         self.status = status
+        self.status_input = status_input
     
     def __str__(self):
         return(f"{self.id} | Serviço: {self.name} | Preço {self.preco} \nStatus: {self.status} | Descrição: {self.desc}\n" + "-=" * 20)
@@ -17,9 +18,9 @@ class SistemaServicos():
         name = input("Digite o nome do serviço: ")
         preco = input("Digite o preço do serviço: R$")
         desc = input("Digite uma breve descrição para o serviço: ")
-        status_input = int(input("Escolha o status do serviço:\n1 - Na bancada\n2 - Aguardando peça\n3 - Pronto para retirada\n4 - Entregue\n> "))   
+        status_input = input("Escolha o status do serviço:\n1 - Na bancada\n2 - Aguardando peça\n3 - Pronto para retirada\n4 - Entregue\n> ")  
         
-        match status_input:
+        match int(status_input):
             case 1:
                 status = "Na bancada"
             case 2:
@@ -29,20 +30,18 @@ class SistemaServicos():
             case 4:    
                 status = "Entregue"
         
-        servico = Servicos(len(self.l_servicos), name, preco, desc, status)
+        servico = Servicos(len(self.l_servicos), name, preco, desc, status, status_input)
         self.l_servicos.append(servico)
-        print("Serviço cadastrado com sucesso!")
+        #print("Serviço cadastrado com sucesso!")
         
     def listarServicos(self):
         print("Agora irei listar os serviços!")
         for servico in self.l_servicos:
-            #print(f"{servico} | Serviço: {servico} | Preço {servico} \nStatus: {servico} | Descrição: {servico}\n" + "-=" * 20)
             print(servico)
-            
-#print(f"{10} | Serviço: {"TESTE"} | Preço {1000} \nStatus: {"OFF"} | Descrição: {"TESTANDO"}\n" + "-=" * 20)
-
-servicos = SistemaServicos()
-
-servicos.cadastroServico()
-servicos.cadastroServico()
-servicos.listarServicos()
+    
+    def removerServico(self):
+        remover = input("Qual serviço você quer remover? DIGITE O ID\n> ")
+        self.l_servicos.pop(int(remover))
+        
+    def atualizarStatus(self):
+        pass
