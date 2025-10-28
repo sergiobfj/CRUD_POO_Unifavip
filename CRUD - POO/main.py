@@ -1,42 +1,120 @@
-import clientes #essa parte é necessaria
+import clientes
 import estoque
 
-'''
+    # Aqui vai ser o menu principal. 
+def menu_principal():
+    while True:
+        print('\n=-=-=-= BEM-VINDO AO SISTEMA =-=-=-=')
+        print('[1] Gerenciar Cliente ✅')
+        print('[2] Gerenciar Peça ✅')
+        print('[3] Gerenciar Serviço')
+        print('[4] Gerar Relatório')
+        print('[0] Sair')
 
+        opcao = input('Escolha uma opção: ')
+      
+        if opcao == "1":
+            menu_clientes()
+        elif opcao == "2":
+            menu_pecas()
+        elif opcao == "3":
+            menu_servico()
+        elif opcao == "4":
+            menu_relatorio()
+        elif opcao == "0":
+            print('Saindo do sistema...')
+            break
+        else:
+            print('Opção inválida! Tente novamente.')
 
--=-=-=- LUAN ⬇️ -=-=-=-=-
+    # Aqui vai ser o menu do cliente. Você vai gerencia-lo por aqui.
+def menu_clientes():
+    sistema_clientes = clientes.SistemaClientes()
+    while True:
+        print('\n=-=-=-= GERENCIAR CLIENTES =-=-=-=')
+        print('[1] Cadastrar Cliente')
+        print('[2] Listar Clientes')
+        print('[3] Remover Cliente')
+        print('[0] Voltar ao menu principal')
 
-Esse código MAIN.py é a parte que o usuario vai visualizar, ou seja, a parte dos menus.
-Só usando a lógica e o basico de python tu desenrola esses menus, não precisa saber de nada em POO.
+        opcao = input('Escolha uma opção: ')
 
-Eu pensei em fazer um MENU INCIAL que vai listar todas as funções, ex:
+        if opcao == "1":
+            sistema_clientes.cadastrar_cliente()
+        elif opcao == "2":
+            sistema_clientes.listar_clientes()
+        elif opcao == "3":
+            sistema_clientes.remover_cliente()
+        elif opcao == "0":
+            break
+        else:
+            print('Opção inválida!')
 
-BEM VINDO AO SISTEMA - ESCOLHA SUA OPÇÃO
-[1] Gerenciar Cliente ✅
-[2] Gerenciar Peça ✅
-[3] Gerenciar Serviço 
-[4] Gerar Relatório
+    # Aqui vai ser o menu das peças. Organize as peças por aqui. 
+def menu_pecas():
+    sistema_estoque = estoque.SistemaEstoque()
+    while True:
+        print('\n=-=-=-= GERENCIAR PEÇAS =-=-=-=')
+        print('[1] Adicionar Peça')
+        print('[2] Listar Peças')
+        print('[3] Remover Peça')
+        print('[0] Voltar ao menu principal')
 
-OBS: Até onde eu escrevi isso, só estão prontas as funções 1 e 2, então só da pra tu fazer o menu funcionar dessas 2
+        opcao = input('Escolha uma opção: ')
 
-Após o cliente escolher uma opção ([1] por exemplo), vai ser gerado outro menu como por exemplo:
+        if opcao == "1":
+            sistema_estoque.adicionar_peca()
+        elif opcao == "2":
+            sistema_estoque.listar_pecas()
+        elif opcao == "3":
+            sistema_estoque.remover_peca()
+        elif opcao == "0":
+            break
+        else:
+            print('Opção inválida!')
 
-GERENCIAR CLIENTES
-sistema = sistema.Clientes
+    # Aqui vai ser o menu de serviços.
+def menu_servico():
+    while True:
+        print('\n=-=-=-= GERENCIAR SERVIÇOS =-=-=-=')
+        print('[1] Cadastrar Serviço')
+        print('[2] Listar Serviços')
+        print('[3] Remover Serviço')
+        print('[0] Voltar ao menu principal')
 
-[1] Cadastrar Cliente
-[2] Listar Clientes
-[3] Remover Cliente
+        opcao = input('Escolha uma opção: ')
 
-Após criar a estrutura do MENU INICIAL e dos MENUS de FUNÇÔES, basta tu organizar alguns prints e chamar a função ja criada, ex:
+        if opcao == "1":
+            print('Qual serviço deseja cadastrar?')
+        elif opcao == "2":
+            print('Qual serviço deseja listar?')
+        elif opcao == "3":
+            print('Qual serviço deseja remover?')
+        elif opcao == "0":
+            print('Voltando ao menu principal...')
+            break
+        else:
+            print('Opção inválida!')
 
--=-=-=-=- GERENCIAR CLIENTES -=-=-=-=-
-print('Area de cadastro.....')
-sistema_clientes = clientes.SistemaClientes()
+    # Aqui vai ser o menu de relatórios.
+def menu_relatorio():
+    while True:
+        print('\n=-=-=-= GERAR RELATÓRIOS =-=-=-=')        
+        print('[1] Relatório de Clientes')
+        print('[2] Relatório de Peças')
+        print('[0] Voltar ao menu principal')
+       
+        opcao = input("Escolha uma opção: ")
 
+        if opcao == '1':
+            print('Gerando relatório de clientes...')
+        elif opcao == '2':
+            print('Gerando relatório de peças...')
+        elif opcao == '0':
+            print('Voltando ao menu principal...')
+            break
+        else:
+            print('Opção inválida!')
 
-
-SÓ REPETIR ISSO PARA AS DEMAIS FUNÇÕES JA CRIADAS QUE DA CERTO, Qualquer dúvida manda no gp ou pede ajuda ao gpt
-
-- sergio
-'''
+if __name__ == "__main__":
+    menu_principal()
