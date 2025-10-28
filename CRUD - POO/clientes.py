@@ -1,40 +1,72 @@
-import random
+# Cadastro de clientes finalizada
 
-class Cliente:
-    def __init__(self, id, name, tel, mail):
-        self.id = id
+
+class Cliente: #Classe do Cliente
+    def __init__(self, name, tel, mail): #Atributos do cliente
         self.name = name
         self.tel = tel
         self.mail = mail
     
     def __str__(self):
-        return(f"{self.id} - {self.name} - {self.tel} - {self.mail}")
+        return(f"{self.name} | Telefone: {self.tel} - E-Mail:{self.mail}") #Função que retorna a formatação do texto no terminal
     
-class SistemaClientes():
-    Tclientes = []
+class SistemaClientes(): #Classe do Sistema de Cadastro de Clientes
+    Tclientes = [] #Lista de clientes
         
-    def cadastrarCliente(self):
-        name = input("Qual o nome desse Clientes?")
-        tel = input("Qual o telefone desse Clientes?")
-        mail = input("Qual o E-mail desse Clientes?")
-        cliente = Cliente(len(self.Tclientes), name, tel, mail)
-        self.Tclientes.append(cliente)
+    def cadastrarCliente(self): #Método de cadastro de clientes
+        print("-=-=-=-=-=-=- CADASTRO DE CLIENTE -=-=-=-=-=-=-\n")
+        name = input("Nome Completo: ").upper()
+
+        while True: #Tratamento de erro
+            tel = input("Telefone (APENAS NÚMEROS): ")
+            if len(tel) != 11:
+                print("O número não tem a quantidade correta de digitos. Corrija: ")
+                continue      
+            else:
+                break
+
+        while True: #tratamento de erro
+            mail = input("E-mail: ")
+            if '@' not in mail:
+                print("Digite o E-mail corretamente.")
+                continue
+            else:
+                break
+
+        cliente = Cliente(name, tel, mail) #Criando as instâncias
+        self.Tclientes.append(cliente) #Adcionando os clientes na lista
         
-    def listarCliente(self):
+    def listarCliente(self): #Método de listar clientes
         for cliente in self.Tclientes:
+            print("-="*30)
             print(cliente)
-        
+
     def removerCliente(self):
-        print("Para remover um usuário da lista, digite seu ID:")
-        id = int(input("> "))
-        self.Tclientes.pop(int(id))
+        while True:
+            print("Para remover um usuário da lista, digite seu Nome Completo (ou 'SAIR' para sair):")
+            nome = input("> ").strip().upper()
+
+            if nome == 'SAIR': 
+                print("Operação cancelada.")
+                return
+
+            for cliente in self.Tclientes: #Tratamento de erro:
+                if cliente.name == nome:
+                    opc = input(f"Tem certeza que quer excluir o cliente {cliente.name}? [S/N] ").strip().upper()
+                    if opc == 'S':
+                        self.Tclientes.remove(cliente)
+                        print("Cliente removido com sucesso.")
+                    else:
+                        print("Remoção cancelada.")
+                    return  # Sai do método após tratar o cliente
+            print("Esse cliente não existe. Tente novamente.\n")
+
         
 
-
+#Testes -- Apagar quando o MAIN estiver pronto
 sistema = SistemaClientes()
 
 #Cadastrando 2 Clientes
-sistema.cadastrarCliente()
 sistema.cadastrarCliente()
 sistema.listarCliente()
 sistema.removerCliente()
