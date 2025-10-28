@@ -105,6 +105,7 @@ def menu_servico():
         print('[1] Cadastrar Serviço')
         print('[2] Listar Serviços')
         print('[3] Remover Serviço')
+        print('[4] Atualizar Serviço')
         print('[0] Voltar ao menu principal')
 
         opcao = input('Escolha uma opção: ')
@@ -124,6 +125,8 @@ def menu_servico():
         elif opcao == "4":
             print("Qual serviço você quer atualizar?")
             espera()
+            sistema_servico.listarServicos()
+            print("-="*30)
             sistema_servico.atualizarStatus()
         elif opcao == "0":
             print('Voltando ao menu principal...')

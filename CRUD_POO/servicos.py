@@ -47,6 +47,7 @@ class SistemaServicos():
         self.l_servicos.pop(int(remover))
         
     def atualizarStatus(self):
+        print("-="*30)
         print("Deseja atualizar o status de qual serviço?")
         input_servico = int(input("ID do serviço\n> "))
         for servico in self.l_servicos:
