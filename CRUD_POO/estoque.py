@@ -80,6 +80,3 @@ class SistemaEstoque():
                         print('ID inválido.')           #Print
 
                     return
-            
-        
-
