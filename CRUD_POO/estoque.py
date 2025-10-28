@@ -28,9 +28,7 @@ class SistemaEstoque():
         if not existe:                          #Se a peça não existir
             estoque = Estoque(len(self.t_Estoque), name, preco, qtd) #Crie uma nova instância
             self.t_Estoque.append(estoque)      #E adcione na lista
-
-        
-        
+       
     def listarPeca(self):
         for peca in self.t_Estoque:
             print("-="*30)

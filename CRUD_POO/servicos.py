@@ -17,7 +17,7 @@ class SistemaServicos():
         name = input("Digite o nome do serviço: ")
         preco = input("Digite o preço do serviço: R$")
         desc = input("Digite uma breve descrição para o serviço: ")
-        status_input = int(input("Escolha o status do serviço:\n1 - Na bancada\n2 - Aguardando peça\n3 - Pronto para retirada\n4 - Entregue\n> "))   
+        status_input = int(input("Escolha o status do serviço:\n1 - Na bancada\n2 - Aguardando peça\n3 - Pronto para retirada\n4 - Entregue\n> "))
         
         match status_input:
             case 1:
@@ -32,6 +32,7 @@ class SistemaServicos():
         servico = Servicos(len(self.l_servicos), name, preco, desc, status)
         self.l_servicos.append(servico)
         print("Serviço cadastrado com sucesso!")
+        
         
     def listarServicos(self):
         print("Agora irei listar os serviços!")

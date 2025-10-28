@@ -1,5 +1,5 @@
-import clientes
-import estoque
+import clientes, estoque, servicos, rela
+
 
     # Aqui vai ser o menu principal. 
 def menu_principal():
@@ -75,6 +75,7 @@ def menu_pecas():
 
     # Aqui vai ser o menu de serviços.
 def menu_servico():
+    sistema_servico = servicos.
     while True:
         print('\n=-=-=-= GERENCIAR SERVIÇOS =-=-=-=')
         print('[1] Cadastrar Serviço')
@@ -86,6 +87,7 @@ def menu_servico():
 
         if opcao == "1":
             print('Qual serviço deseja cadastrar?')
+
         elif opcao == "2":
             print('Qual serviço deseja listar?')
         elif opcao == "3":
